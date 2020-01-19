@@ -29,6 +29,9 @@ any_name_you_wish:
     - light
     - switch
 ```
+This example config will create `group.all_devices`, `group.all_lights` and `group.all_switches` in Home Assistant as shown below.
+
+<img style="border: 1px solid #767676;border-radius: 10px;max-width: 600px;width: 100%;box-sizing: border-box;" src="https://raw.githubusercontent.com/so3n/Bring-Back-group.all_x/master/screenshot_1.png">
 
 <hr>
 
