@@ -16,7 +16,8 @@ GROUPS = [
     dict(domain="remote", group_name="all_remotes"), 
     dict(domain="script", group_name="all_scripts"), 
     dict(domain="switch", group_name="all_switches"), 
-    dict(domain="vacuum", group_name="all_vacuum_cleaners")
+    dict(domain="vacuum", group_name="all_vacuum_cleaners"),
+    dict(domain="person", group_name="all_people")
 ]
 
 class group_all_x(hass.Hass):

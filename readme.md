@@ -17,7 +17,7 @@ Install via [HACS](https://hacs.xyz/). Alternatively, place the apps folder and 
 |----------|--------|----------|---------|----------------------|
 | module   | string | TRUE     |         | Set to `bbgax`       |
 | class    | string | TRUE     |         | Set to `group_all_x` |
-| domains  | list   | TRUE     |         | List of device groups you want to generate. <br/>Valid list options are: `automation`, `cover`, `device_tracker`, `fan`, `light`, `lock`, `plant`, `remote`, `script`, `switch`, `vacuum` |
+| domains  | list   | TRUE     |         | List of device groups you want to generate. <br/>Valid list options are: `automation`, `cover`, `device_tracker`, `fan`, `light`, `lock`, `plant`, `remote`, `script`, `switch`, `vacuum`, `person` |
   
 ### Example Usage
 ```yaml
