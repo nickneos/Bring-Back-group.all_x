@@ -48,6 +48,10 @@ class group_all_x(hass.Hass):
         for dev in self.get_state(domain):
             entities.append(dev)
         
+        if not entities:
+            self.log(f"No entities found for {domain}! Skipping")
+            return
+            
         self.log(f"Creating group.{grp_name} for {entities}")
         self.call_service("group/set", object_id=grp_name, entities=entities)
     
