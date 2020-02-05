@@ -17,6 +17,8 @@ GROUPS = [
     dict(domain="script", group_name="all_scripts"), 
     dict(domain="switch", group_name="all_switches"), 
     dict(domain="vacuum", group_name="all_vacuum_cleaners"),
+    dict(domain="calendar", group_name="all_calendar"), 
+    dict(domain="remember_the_milk_account", group_name="all_remember_the_milk_accounts"), 
     dict(domain="person", group_name="all_people")
 ]
 
@@ -45,7 +47,7 @@ class group_all_x(hass.Hass):
 
         for dev in self.get_state(domain):
             entities.append(dev)
-            
+        
         self.log(f"Creating group.{grp_name} for {entities}")
         self.call_service("group/set", object_id=grp_name, entities=entities)
     
