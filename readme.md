@@ -12,6 +12,8 @@ If like me, you used `group.all_x` for your automation, this appdaemon app lets 
 
 Install via [HACS](https://hacs.xyz/). Alternatively, place the apps folder and its contents in your appdaemon folder.
 
+**Make sure** `group:` **is included in your** `configuration.yaml` **even if you have no manually specified groups.**
+
 ## Configuration
 | Variable | Type   | Required | Default | Description          |
 |----------|--------|----------|---------|----------------------|
