@@ -5,22 +5,23 @@
 
 import appdaemon.plugins.hass.hassapi as hass
 
-GROUPS = [
-    dict(domain="automation", group_name="all_automations"),
-    dict(domain="cover", group_name="all_covers"), 
-    dict(domain="device_tracker", group_name="all_devices"), 
-    dict(domain="fan", group_name="all_fans"), 
-    dict(domain="light", group_name="all_lights"), 
-    dict(domain="lock", group_name="all_locks"), 
-    dict(domain="plant", group_name="all_plants"), 
-    dict(domain="remote", group_name="all_remotes"), 
-    dict(domain="script", group_name="all_scripts"), 
-    dict(domain="switch", group_name="all_switches"), 
-    dict(domain="vacuum", group_name="all_vacuum_cleaners"),
-    dict(domain="calendar", group_name="all_calendar"), 
-    dict(domain="remember_the_milk_account", group_name="all_remember_the_milk_accounts"), 
-    dict(domain="person", group_name="all_people")
-]
+GROUP_DICT = {
+    "automation": "all_automations",
+    "cover": "all_covers", 
+    "device_tracker": "all_devices", 
+    "fan": "all_fans", 
+    "light": "all_lights", 
+    "lock": "all_locks", 
+    "plant": "all_plants", 
+    "remote": "all_remotes", 
+    "script": "all_scripts", 
+    "switch": "all_switches", 
+    "vacuum": "all_vacuum_cleaners",
+    "calendar": "all_calendar", 
+    "remember_the_milk_account": "all_remember_the_milk_accounts", 
+    "person": "all_people"
+}
+
 
 class group_all_x(hass.Hass):
     """ Create Default Groups """
@@ -32,14 +33,11 @@ class group_all_x(hass.Hass):
         for domain in domains:
             self.create_group(domain)
 
+
     def create_group(self, domain):
         """ create group from supplied domain """
         entities = []
-        grp_name = None
-        
-        for grp in GROUPS:
-            if domain == grp["domain"]:
-                grp_name = grp["group_name"] 
+        grp_name = GROUP_DICT.get(domain, None)
         
         if grp_name is None:
             self.log(f"{domain} not a valid domain! Skipping")
@@ -54,6 +52,7 @@ class group_all_x(hass.Hass):
             
         self.log(f"Creating group.{grp_name} for {entities}")
         self.call_service("group/set", object_id=grp_name, entities=entities)
+    
     
     def to_list(self, x):
         """ convert variable to list if not list """
