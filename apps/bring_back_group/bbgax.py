@@ -39,6 +39,7 @@ class group_all_x(hass.Hass):
 
         domains = self.to_list(self.args.get("domains", []))
         self.sort = self.args.get("sort")
+        self.purge = self.args.get("purge")
 
         for domain in domains:
             self.create_group(domain)
@@ -72,6 +73,8 @@ class group_all_x(hass.Hass):
             return
         self.log(f"devicesall - before: {entities}", level = INFO)
         entities.sort(key=lambda x: self.getname(x, domain))
+        if self.purge:
+            entities = [x for x in entities if self.getname(x, domain) != "Unknown-Location"]
         self.log(f"devicesall - end: {entities}", level = INFO)
             
         self.log(f"Creating group.{grp_name} for {entities}", level = INFO)
